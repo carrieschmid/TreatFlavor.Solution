@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using BasicAuthentication.Models;
 
+
 namespace Bakery.Models
 {
   public class BakeryContextFactory : IDesignTimeDbContextFactory<BakeryContext>

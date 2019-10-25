@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BasicAuthentication.Models;
+
 
 namespace Bakery.Models
 {
@@ -12,7 +12,8 @@ namespace Bakery.Models
     }
     public int TreatsId { get; set; }
     public string Name { get; set; }
-    public int FlavorsId { get; set; }
+    
+     public virtual ApplicationUser User { get; set; }
      public ICollection<FlavorsTreats> Flavors { get; }
   }
 
