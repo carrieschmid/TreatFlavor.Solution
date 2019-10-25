@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Bakery.Models;
+using BasicAuthentication.Models;
 
-namespace Bakery.Models
+namespace BasicAuthentication.Models
 {
-  public class BakeryContext : DbContext
+  public class BakeryContext : IdentityDbContext<ApplicationUser>
   {
     public virtual DbSet<Flavors> Flavors { get; set; }
     public DbSet<Treats> Treats { get; set; }

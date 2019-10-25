@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BasicAuthentication.Models;
 
 namespace Bakery.Models
 {
