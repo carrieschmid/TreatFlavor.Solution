@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using Bakery.Models;
 using BasicAuthentication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Bakery.Models;
 
 namespace Bakery.Controllers {
     public class FlavorsController : Controller {
@@ -22,10 +22,19 @@ namespace Bakery.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Create (Flavors flavor) {
-            _db.Flavors.Add (flavor);
+        public ActionResult Create (Flavors flavors) {
+            _db.Flavors.Add (flavors);
             _db.SaveChanges ();
             return RedirectToAction ("Index");
+        }
+
+        public ActionResult Details (int id) 
+        {
+            var thisFlavor = _db.Flavors
+                .Include (flavor => flavor.Treats)
+                .ThenInclude (join => join.Treats)
+                .FirstOrDefault (flavor => flavor.FlavorsId == id);
+            return View (thisFlavor);
         }
 
     }
