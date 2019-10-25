@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Treats
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+
+@if(@Model.Flavors.Count == 0)
+{
+  <p>This item does not belong to any flavors</p>
+}
+else
+{
+  <h4>Flavor the treat belongs to:</h4>
+  <ul>
+  @foreach(var join in Model.Flavors)
+  {
+    <li>@join.Flavors.Name</li>
+     @using (Html.BeginForm("DeleteCategory", "Treats"))
+    {
+      @Html.Hidden("joinId", @join.FlavorsTreatsId)
+      //arguments- variable to pass through and the actual value of that parameter
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+
+@*<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Add a Category", "AddCategory", new { id = Model.ItemId })</p>
+*@
