@@ -24,7 +24,7 @@ namespace Bakery
     {
       services.AddMvc();
       services.AddEntityFrameworkMySql()
-        .AddDbContext<RestaurantContext>(options => options
+        .AddDbContext<BakeryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
