@@ -23,15 +23,13 @@ else
      @using (Html.BeginForm("DeleteCategory", "Treats"))
     {
       @Html.Hidden("joinId", @join.FlavorsTreatsId)
-      //arguments- variable to pass through and the actual value of that parameter
       <input type="submit" value="Delete"/>
     }
   }
   </ul>
 }
 
-@*<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Add a Category", "AddCategory", new { id = Model.ItemId })</p>
-*@
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatsId })</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatsId })</p>
+<p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatsId })</p>
