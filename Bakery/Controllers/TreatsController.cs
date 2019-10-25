@@ -27,17 +27,14 @@ namespace Bakery.Controllers {
             return View ();
         }
 
-        // [HttpPost]
-        // public async Task<ActionResult> Create (Item item, int CategoryId) {
-        //     var userId = this.User.FindFirst (ClaimTypes.NameIdentifier)?.Value;
-        //     var currentUser = await _userManager.FindByIdAsync (userId);
-        //     item.User = currentUser;
-        //     _db.Items.Add (item);
-        //     if (CategoryId != 0) {
-        //         _db.CategoryItem.Add (new CategoryItem () { CategoryId = CategoryId, ItemId = item.ItemId });
-        //     }
-        //     _db.SaveChanges ();
-        //     return RedirectToAction ("Index");
-        // }
+        [HttpPost]
+        public async Task<ActionResult> Create (Treats treats, int FlavorsId) {        
+            _db.Treats.Add (treats);
+            if (FlavorsId != 0) {
+                _db.TreatsFlavors.Add (new TreatsFlavors () { FlavorsId = FlavorsId, TreatsId = treats.TreatsId });
+            }
+            _db.SaveChanges ();
+            return RedirectToAction ("Index");
+        }
     }
 }
