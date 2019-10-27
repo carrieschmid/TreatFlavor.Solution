@@ -21,6 +21,11 @@ else
   <h3>No items have been added yet!</h3>
 }
 
+@using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
+    
 <p>@Html.ActionLink("Add new treat", "Create")</p>
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
