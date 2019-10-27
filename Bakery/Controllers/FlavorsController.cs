@@ -40,7 +40,7 @@ namespace Bakery.Controllers {
         public ActionResult Edit(int id)
         {
         var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorsId == id);
-        return View(thisCategory);
+        return View(thisFlavor);
         }
         
         [HttpPost]
@@ -60,8 +60,8 @@ namespace Bakery.Controllers {
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-        var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-        _db.Categories.Remove(thisCategory);
+        var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorsId == id);
+        _db.Flavors.Remove(thisFlavor);
         _db.SaveChanges();
         return RedirectToAction("Index");
         }

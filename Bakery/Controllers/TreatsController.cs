@@ -58,7 +58,7 @@ namespace Bakery.Controllers {
         }
 
         public ActionResult Edit (int id) {
-            var thisTreat = _db.Items.FirstOrDefault (treats => treats.TreatsId == id);
+            var thisTreat = _db.Treats.FirstOrDefault (treats => treats.TreatsId == id);
             ViewBag.FlavorsId = new SelectList (_db.Flavors, "FlavorsId", "Name");
             return View (thisTreat);
         }
